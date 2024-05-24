@@ -1,16 +1,25 @@
 package com.depotgenius.business.abstracts;
 
-import java.util.List;
 import java.util.UUID;
 
-import com.depotgenius.dtos.product.ProductItemDTO;
+import com.depotgenius.dtos.product.AcceptProductRequest;
+import com.depotgenius.dtos.product.CreateProductRequest;
+import com.depotgenius.dtos.product.DeleteProductRequest;
+import com.depotgenius.dtos.product.SaleProductRequest;
+import com.depotgenius.dtos.product.UpdateProductRequest;
 import com.depotgenius.entities.concretes.Product;
 
-public interface ProductService extends BaseService<Product> {
+public interface ProductService {
 
-	void acceptProduct(UUID id);
+	Product create(CreateProductRequest createProductRequest);
 
-	void saleProduct(List<ProductItemDTO> productItems, UUID costumerId, UUID userId);
+	Product update(UpdateProductRequest updateProductRequest);
+
+	void delete(DeleteProductRequest deleteProductRequest);
+
+	void acceptProduct(AcceptProductRequest acceptProductRequest);
+
+	void saleProduct(SaleProductRequest saleProductRequest);
 
 	Product getProduct(UUID productId);
 }

@@ -1,5 +1,5 @@
 package com.depotgenius.dtos.user;
 
-public class PasswordChangeRequest {
+public class ChangePasswordRequest {
 
 }
