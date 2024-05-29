@@ -14,13 +14,13 @@ public interface ShelfRepository extends JpaRepository<Shelf, UUID>, JpaSpecific
 
 	List<Shelf> findAll();
 
-	@Query("SELECT s FROM shelf s WHERE s.product.id = :productId and s.count < s.capacity")
+	@Query("SELECT s FROM Shelf s WHERE s.product.id = :productId and s.count < s.capacity")
 	Optional<Shelf> findByProductIdNotFull(UUID productId);
 
 	List<Shelf> findAllByProductIdAndCountGreaterThan(UUID productId, int count);
 
-	@Query("SELECT COALESCE(sum(s.count), 0) FROM Shelf s WHERE s.product.id = :productId ")
+	@Query("SELECT COALESCE(sum(s.count), 0) FROM Shelf s WHERE s.product.id = :productId")
 	Integer sumCountByProductId(UUID productId);
 
-	List<Shelf> findAllByCountAndProductId(int count, UUID prooductId);
+	List<Shelf> findAllByCountAndProductId(int count, UUID productId);
 }
